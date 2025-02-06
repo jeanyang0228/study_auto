@@ -38,12 +38,15 @@ process_time_latest = [385, 400, 395, 375, 401, 389]
 process_time_latest = [385, 400, 395, 375, 401]
 process_time_latest.sort()
 while True:
+    new_time = input("最新一次數據：")
+    if new_time == "exit":
+            break
     try:
-        new_time = int (input("最新一次數據："))
+        new_time = int (new_time)
     except:
         print("請輸入整數")
     else:    
-        if new_time < process_time_latest[3]:
+        if new_time <= process_time_latest[2]:
             print(f'最新一次數據為:{new_time} - 結果為Pass')
         else:
             print(f'最新一次數據為:{new_time} - 結果為Fail')    
