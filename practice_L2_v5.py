@@ -34,19 +34,26 @@ process_time_latest = [385, 400, 395, 375, 401, 389]
 1. 請考慮使用者有意/無意輸入不符格式, 造成例外的狀況
 2. 可用list.sort()來排序 (增加及刪除也放到提示)
 '''
-
+#%%
 process_time_latest = [385, 400, 395, 375, 401]
 process_time_latest.sort()
-fourth_num = process_time_latest[3]
+while True:
+    try:
+        new_time = int (input("最新一次數據："))
+    except:
+        print("請輸入整數")
+    else:    
+        if new_time < process_time_latest[3]:
+            print(f'最新一次數據為:{new_time} - 結果為Pass')
+        else:
+            print(f'最新一次數據為:{new_time} - 結果為Fail')    
+        process_time_latest.append(new_time)
+        process_time_latest.sort()
+        print(f'目前數據為:{process_time_latest}')
+   
+
 # 以下請編寫您的練習一程式
-new_time = int(input('請輸入最新測試結果：'))
-if new_time < fourth_num:
-    print(f'最新數據:{new_time} - 結果為Pass')
-else:
-    print(f'最新數據:{new_time} - 結果為Fail')
-process_time_latest.append(new_time)
-process_time_latest.sort()
-print('目前數據:',process_time_latest)
+
 
 
 #%%
